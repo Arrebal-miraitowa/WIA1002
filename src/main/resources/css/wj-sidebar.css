@@ -1,0 +1,115 @@
+.aside {
+    /*-fx-min-width: 220px;
+    -fx-max-width: 220px;*/
+    -fx-pref-width: 220px;
+    -fx-border-width: 0 1px 0 0;
+    -fx-border-color: -wj-border-color;
+    -fx-spacing: 5px;
+    -fx-alignment: top-center;
+    -fx-padding: 10px;
+}
+
+.title-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #fa00fdff 0.0%, #02dcddff 100.0%);
+}
+
+/*导航栏Item样式*/
+.nav-item {
+    -fx-background-radius: 3px;
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-alignment: center-left;
+    -fx-spacing: 10px;
+    -fx-padding: 0 10px;
+    -fx-cursor: hand;
+}
+
+/*.nav-item > .icon-label{
+    -fx-alignment: center;
+}*/
+.nav-item > .icon-label > .ikonli-font-icon {
+    -fx-icon-size: 20px;
+    -fx-icon-color: derive(-wj-text-color, 30%);
+}
+
+.nav-item > .name-label {
+    -fx-font-size: 14px;
+    -fx-pref-height: 30px;
+    -fx-font-weight: bolder;
+    -fx-text-fill: derive(-wj-text-color, 30%);
+}
+
+.nav-item:hover > .name-label {
+    -fx-text-fill: -wj-primary-color;
+}
+
+.nav-item:hover > .icon-label > .ikonli-font-icon {
+    -fx-icon-color: -wj-primary-color;
+}
+
+/*动态导航栏*/
+.menu {
+    -fx-background-insets: 0px;
+    -fx-background-color: transparent;
+    -fx-padding: 5px 0 5px 0;
+}
+
+.menu .scroll-bar {
+    -fx-opacity: 0;
+}
+
+.menu:hover .scroll-bar {
+    -fx-opacity: 1;
+}
+
+.menu .cell.indexed-cell.list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 0px;
+}
+
+.menu .cell.indexed-cell.list-cell:empty:hover {
+    -fx-background-color: transparent;
+}
+
+.menu .cell.indexed-cell.list-cell:hover {
+}
+
+.menu .cell.indexed-cell.list-cell:selected {
+}
+
+.menu .cell.indexed-cell.list-cell:selected .nav-item {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu .cell.indexed-cell.list-cell:selected .name-label {
+    -fx-text-fill: -wj-primary-color;
+}
+
+.menu .cell.indexed-cell.list-cell:selected .icon-label > .ikonli-font-icon {
+    -fx-icon-color: -wj-primary-color;
+}
+
+/* 用户信息 */
+.user-box {
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+    -fx-cursor: hand;
+}
+
+.user-info-box {
+    -fx-alignment: center-left;
+    -fx-spacing: 2px;
+}
+
+.user-label, .email-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bolder;
+    -fx-text-fill: -wj-text-color;
+}
+
+.email-label {
+    -fx-font-weight: lighter;
+    -fx-text-fill: derive(-wj-text-color, 40%);
+}

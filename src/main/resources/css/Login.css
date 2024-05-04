@@ -1,0 +1,18 @@
+.v-box-in, .v-box-up {
+    -fx-pref-height: 370px;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 5px;
+    -fx-padding: 20px;
+    -fx-spacing: 15px;
+    -fx-alignment: bottom-center;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5.0, 0, 0, 0);
+}
+
+/*.v-box-in:disabled, .v-box-up:disabled {*/
+/*    -fx-opacity: 1;*/
+/*}*/
+
+.check-pane {
+    -fx-alignment: CENTER_LEFT;
+}
+

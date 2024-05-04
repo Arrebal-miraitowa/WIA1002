@@ -1,0 +1,189 @@
+@import "wj-colors.css";
+
+.wj-but {
+    -fx-background-insets: 0;
+    -fx-border-radius: 3px;
+    /*-fx-border-color: transparent;*/
+    -fx-background-radius: 3px;
+    -fx-background-color: transparent;
+    -fx-pref-height: 32px;
+    /*-fx-min-height: 32px;*/
+    -fx-padding: 0px 15px 0px 15px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: rgb(255, 255, 255);
+    -fx-cursor: hand;
+}
+
+.wj-but > .ikonli-font-icon {
+    -fx-icon-size: 17px;
+    -fx-icon-color: rgb(255, 255, 255);
+}
+
+.wj-but.primary {
+    -fx-background-color: -wj-primary-color;
+}
+
+.wj-but.success {
+    -fx-background-color: -wj-success-color;
+}
+
+.wj-but.info {
+    -fx-background-color: -wj-info-color;
+}
+
+.wj-but.warn {
+    -fx-background-color: -wj-warn-color;
+}
+
+.wj-but.danger {
+    -fx-background-color: -wj-danger-color;
+}
+
+/*hover:*/ /*focused:*/
+.wj-but.primary:hover, .wj-but.primary:focused {
+    -fx-background-color: derive(-wj-primary-color, 30%);
+}
+
+.wj-but.success:hover, .wj-but.success:focused {
+    -fx-background-color: derive(-wj-success-color, 30%);
+}
+
+.wj-but.info:hover, .wj-but.info:focused {
+    -fx-background-color: derive(-wj-info-color, 30%);
+}
+
+.wj-but.warn:hover, .wj-but.warn:focused {
+    -fx-background-color: derive(-wj-warn-color, 30%);
+}
+
+.wj-but.danger:hover, .wj-but.danger:focused {
+    -fx-background-color: derive(-wj-danger-color, 30%);
+}
+
+/*pressed:*/
+.wj-but.primary:pressed {
+    -fx-background-color: derive(-wj-primary-color, -10%);
+}
+
+.wj-but.success:pressed {
+    -fx-background-color: derive(-wj-success-color, -10%);
+}
+
+.wj-but.info:pressed {
+    -fx-background-color: derive(-wj-info-color, -10%);
+}
+
+.wj-but.warn:pressed {
+    -fx-background-color: derive(-wj-warn-color, -10%);
+}
+
+.wj-but.danger:pressed {
+    -fx-background-color: derive(-wj-danger-color, -10%);
+}
+
+/*圆角按钮*/
+.wj-but.round {
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+}
+
+/*朴素按钮*/
+.wj-but.plain, .wj-but.plain:focused, .wj-but.plain:hover {
+    -fx-background-color: transparent;
+}
+
+.wj-but.primary.plain {
+    -fx-border-color: -wj-primary-color;
+    -fx-text-fill: -wj-primary-color;
+}
+
+.wj-but.success.plain {
+    -fx-border-color: -wj-success-color;
+    -fx-text-fill: -wj-success-color;
+}
+
+.wj-but.info.plain {
+    -fx-border-color: -wj-info-color;
+    -fx-text-fill: -wj-info-color;
+}
+
+.wj-but.warn.plain {
+    -fx-border-color: -wj-warn-color;
+    -fx-text-fill: -wj-warn-color;
+}
+
+.wj-but.danger.plain {
+    -fx-border-color: -wj-danger-color;
+    -fx-text-fill: -wj-danger-color;
+}
+
+.wj-but.primary.plain > .ikonli-font-icon {
+    -fx-icon-color: -wj-primary-color;
+}
+
+.wj-but.success.plain > .ikonli-font-icon {
+    -fx-icon-color: -wj-success-color;
+}
+
+.wj-but.info.plain > .ikonli-font-icon {
+    -fx-icon-color: -wj-info-color;
+}
+
+.wj-but.warn.plain > .ikonli-font-icon {
+    -fx-icon-color: -wj-warn-color;
+}
+
+.wj-but.danger.plain > .ikonli-font-icon {
+    -fx-icon-color: -wj-danger-color;
+}
+
+.wj-but.primary.plain:hover {
+    -fx-text-fill: derive(-wj-primary-color, 30%);
+    -fx-border-color: derive(-wj-primary-color, 30%);
+}
+
+.wj-but.success.plain:hover {
+    -fx-text-fill: derive(-wj-success-color, 30%);
+    -fx-border-color: derive(-wj-success-color, 30%);
+}
+
+.wj-but.info.plain:hover {
+    -fx-text-fill: derive(-wj-info-color, 30%);
+    -fx-border-color: derive(-wj-info-color, 30%);
+}
+
+.wj-but.warn.plain:hover {
+    -fx-text-fill: derive(-wj-warn-color, 30%);
+    -fx-border-color: derive(-wj-warn-color, 30%);
+}
+
+.wj-but.danger.plain:hover {
+    -fx-text-fill: derive(-wj-danger-color, 30%);
+    -border-color: derive(-wj-danger-color, 30%);
+}
+
+.wj-but.primary.plain:pressed {
+    -fx-text-fill: derive(-wj-primary-color, -10%);
+    -fx-border-color: derive(-wj-primary-color, -10%);
+}
+
+.wj-but.success.plain:pressed {
+    -fx-text-fill: derive(-wj-success-color, -10%);
+    -fx-border-color: derive(-wj-success-color, -10%);
+}
+
+.wj-but.info.plain:pressed {
+    -fx-text-fill: derive(-wj-info-color, -10%);
+    -fx-border-color: derive(-wj-info-color, -10%);
+}
+
+.wj-but.warn.plain:pressed {
+    -fx-text-fill: derive(-wj-warn-color, -10%);
+    -fx-border-color: derive(-wj-warn-color, -10%);
+}
+
+.wj-but.danger.plain:pressed {
+    -fx-text-fill: derive(-wj-danger-color, -10%);
+    -border-color: derive(-wj-danger-color, -10%);
+}

@@ -1,0 +1,41 @@
+.wj-header {
+    -fx-background-color: transparent;
+    -fx-padding: 5px 5px;
+    -fx-spacing: 5px;
+}
+
+.wj-header > .button-box {
+    -fx-spacing: 5px;
+    -fx-alignment: center;
+}
+
+.wj-header > .button-box > .minimize-but,
+.wj-header > .button-box > .maximize-but,
+.wj-header > .button-box > .close-but {
+    -fx-padding: 0px;
+    /*-fx-background-color: #EC9F9FFF;*/
+    -fx-background-color: transparent;
+}
+
+.wj-header > .button-box > .minimize-but > .ikonli-font-icon,
+.wj-header > .button-box > .maximize-but > .ikonli-font-icon{
+    -fx-icon-color: #8a92a6;
+    -fx-icon-size: 22px;
+}
+
+.wj-header > .button-box > .close-but > .ikonli-font-icon {
+    -fx-icon-color: #8a92a6;
+    -fx-icon-size: 25px;
+}
+
+.wj-header > .button-box > .minimize-but:hover > .ikonli-font-icon {
+    -fx-icon-color: #FFC631;
+}
+
+.wj-header > .button-box > .maximize-but:hover > .ikonli-font-icon {
+    -fx-icon-color: #2DDB48;
+}
+
+.wj-header > .button-box > .close-but:hover > .ikonli-font-icon {
+    -fx-icon-color: #FF6058;
+}

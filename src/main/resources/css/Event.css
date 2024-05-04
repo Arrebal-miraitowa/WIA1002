@@ -1,0 +1,60 @@
+.wj-event {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 10px;
+}
+
+.sp > .label {
+    -fx-alignment: center;
+    -fx-text-fill: #D9D9D9;
+    -fx-text-align: center;
+    -fx-font-family: Inter;
+    -fx-font-size: 47px;
+    -fx-font-weight: 700;
+}
+
+.event-block {
+    -fx-max-height: 148px;
+}
+
+.my-stack-pane {
+    -fx-min-width: 5px;
+    -fx-min-height: 148px;
+}
+
+.container {
+    -fx-spacing: 10;
+    -fx-padding: 6px 7px 10px 7px;
+}
+
+.l1 {
+    -fx-font-family: Inter;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.l2 {
+    -fx-alignment: top-left;
+    -fx-font-family: Inter;
+    -fx-wrap-text: true;
+    -fx-font-size: 12px;
+    -fx-font-weight: lighter;
+}
+
+.l3, .l4, .l5 {
+    -fx-font-family: Inter;
+    -fx-font-size: 12px;
+}
+
+.l4 {
+    -fx-alignment: baseline-right;
+}
+
+.today, .upcoming {
+    -fx-alignment: center;
+    -fx-background-color: rgba(233, 236, 239, 0.5);
+    -fx-text-fill: #000000;
+    -fx-font-family: Inter;
+    -fx-font-size: 16px;
+}

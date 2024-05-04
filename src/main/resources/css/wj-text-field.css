@@ -1,0 +1,43 @@
+@import "wj-colors.css";
+
+.wj-text-field > .box{
+    -fx-pref-width: 220px;
+    -fx-pref-height: 32px;
+    -fx-padding: 0px 8px;
+    -fx-spacing: 6px;
+    -fx-alignment: center;
+    -fx-border-radius: 3px;
+    -fx-border-color: -wj-border-color;
+}
+.wj-text-field:focused > .box{
+    -fx-border-color: -wj-primary-color;
+}
+.wj-text-field > .box > .text-field,
+.wj-text-field > .box > .password-field{
+    -fx-padding: 0px;
+    -fx-text-fill: -wj-text-color;
+    -fx-font-size: 14px;
+    -fx-border-width: 0;
+    -fx-background-insets:0;
+    -fx-background-color:transparent;
+    -fx-highlight-fill: -wj-primary-color;
+}
+.wj-text-field > .box > .prefix-label > .ikonli-font-icon{
+    -fx-icon-size: 20px;
+    -fx-icon-color: -wj-border-color;
+}
+.wj-text-field:focused > .box > .prefix-label > .ikonli-font-icon{
+    -fx-icon-color: -wj-primary-color;
+}
+.wj-text-field > .box > .suffix-label > .ikonli-font-icon{
+    -fx-icon-size: 20px;
+    -fx-icon-color: rgba(0,0,0,0.2);
+}
+.wj-text-field > .box > .clear-icon{
+    -fx-icon-size: 15px;
+    -fx-icon-color: rgba(0,0,0,0.2);
+}
+.wj-text-field > .box > .clear-icon:hover,
+.wj-text-field > .box > .suffix-label:hover > .ikonli-font-icon{
+    -fx-icon-color: rgba(0,0,0,0.4);
+}

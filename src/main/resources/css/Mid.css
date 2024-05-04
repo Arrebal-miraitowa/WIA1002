@@ -1,0 +1,73 @@
+@import "wj-colors.css";
+
+.wj-mid {
+    -fx-background-color: rgb(252, 252, 252);
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 5.0, 0, 0, 0);
+    -fx-padding: 83px;
+}
+
+.title-box {
+    /*-fx-background-color: rgb(67, 198, 198);*/
+    -fx-alignment: center;
+    -fx-spacing: 55px;
+}
+
+.title-box > .label {
+    -fx-color: #000;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 40px;
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-line-height: normal;
+}
+
+.title-box > .icon-box {
+    /*-fx-background-color: rgb(218, 109, 238);*/
+    -fx-alignment: center;
+    -fx-spacing: 70px;
+}
+
+.title-box > .icon-box > .student,
+.title-box > .icon-box > .teacher,
+.title-box > .icon-box > .parent {
+    /*-fx-background-color: rgb(255, 94, 94);*/
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+    -fx-cursor: hand;
+
+}
+
+.title-box > .icon-box > .student > .ikonli-font-icon,
+.title-box > .icon-box > .teacher > .ikonli-font-icon,
+.title-box > .icon-box > .parent > .ikonli-font-icon {
+    -fx-alignment: center;
+    /*-fx-icon-color: #36ff53;*/
+    -fx-padding: 0px;
+    -fx-icon-size: 105px;
+}
+
+.title-box > .icon-box > .student:hover > .ikonli-font-icon,
+.title-box > .icon-box > .teacher:hover > .ikonli-font-icon,
+.title-box > .icon-box > .parent:hover > .ikonli-font-icon {
+    -fx-icon-color: -wj-primary-color;
+}
+
+.title-box > .icon-box > .student > .label,
+.title-box > .icon-box > .parent > .label,
+.title-box > .icon-box > .teacher > .label {
+    /*-fx-background-color: rgb(85, 25, 206);*/
+    -fx-text-align: center;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 30px;
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-line-height: normal;
+}
+
+.title-box > .icon-box > .student:hover > .label,
+.title-box > .icon-box > .parent:hover > .label,
+.title-box > .icon-box > .teacher:hover > .label {
+    -fx-text-fill: -wj-primary-color;
+}
+
