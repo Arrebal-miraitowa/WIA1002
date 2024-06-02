@@ -1,5 +1,6 @@
 package com.weijie.core.entities;
 
+import java.util.ArrayList;
 import java.util.StringJoiner;
 
 public class Teacher extends User {
@@ -16,8 +17,31 @@ public class Teacher extends User {
         super(Role.TEACHER, username, email, password);
     }
 
-    public static Teacher get(String[] s) {
-        return new Teacher(s[1], s[2], s[3], Integer.parseInt(s[4]), Integer.parseInt(s[5]));
+    public Teacher() {}
+
+    public int getEvents() {
+        return events;
+    }
+
+    public void addEvents() {
+        events++;
+    }
+
+    public int getQuizzes() {
+        return quizzes;
+    }
+
+    public void addQuizzes() {
+        quizzes++;
+    }
+
+    @Override
+    public ArrayList<String> getInfoList() {
+        ArrayList<String> list = super.getInfoList();
+        list.add(0, "Role:| Teacher");
+        list.add("Created events:| " + events);
+        list.add("Created quizzes:| " + quizzes);
+        return list;
     }
 
     @Override

@@ -1,22 +1,26 @@
 package com.weijie.core.entities;
 
+import java.util.Date;
+
 public class Destination {
-    private String name;
-    private String date;
+    private String childrenName;
+    private String place;
+    private Date date;
     private int[] coordinate;
 
-    public Destination(String name, int[] coordinate, String date) {
-        this.name = name;
-        this.coordinate = coordinate;
+    public Destination(String childrenName, String place, Date date, int[] coordinate) {
+        this.childrenName = childrenName;
+        this.place = place;
         this.date = date;
+        this.coordinate = coordinate;
     }
 
-    public String getName() {
-        return name;
+    public String getPlace() {
+        return place;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public int[] getCoordinate() {
@@ -27,16 +31,16 @@ public class Destination {
         this.coordinate = coordinate;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
     @Override
     public String toString() {
-        return String.format("%s %s %d.%d", name, date, coordinate[0], coordinate[1]);
+        return String.format("%s %s %d.%d", place, date, coordinate[0], coordinate[1]);
     }
 }

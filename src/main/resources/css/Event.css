@@ -1,6 +1,8 @@
 .wj-event {
     -fx-background-color: transparent;
     -fx-background: transparent;
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
     -fx-border-width: 0;
     -fx-padding: 10px;
 }
@@ -16,6 +18,15 @@
 
 .event-block {
     -fx-max-height: 148px;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+}
+
+.event-block-hover:hover {
+    -fx-border-radius: 6;
+    -fx-border-width: 1px;
+    -fx-border-color: #0c8ce9;
+    -fx-cursor: hand;
 }
 
 .my-stack-pane {
@@ -35,6 +46,7 @@
 }
 
 .l2 {
+    /*-fx-pref-width: 406px;*/
     -fx-alignment: top-left;
     -fx-font-family: Inter;
     -fx-wrap-text: true;

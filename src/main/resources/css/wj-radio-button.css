@@ -1,0 +1,35 @@
+@import "wj-colors.css";
+
+.wj-radio-button {
+    -fx-cursor: hand;
+}
+
+.wj-radio-button > .container {
+    -fx-text-fill: -wj-text-color;
+    -fx-font-size: 14px;
+    -fx-pref-height: 32px;
+}
+
+.wj-radio-button > .container > .box > .radio {
+    -fx-stroke: -wj-border-color;
+    -fx-fill: transparent;
+    -fx-stroke-type: inside;
+    -fx-stroke-width: 1px;
+}
+
+.wj-radio-button > .container > .box > .dot {
+    -fx-fill: -wj-primary-color;
+    -fx-stroke-type: inside;
+}
+
+.wj-radio-button:focused > .container > .box > .radio {
+    -fx-stroke: -wj-primary-color;
+}
+
+.wj-radio-button:selected > .container {
+    -fx-text-fill: -wj-primary-color;
+}
+
+.wj-radio-button:selected > .container > .box > .radio {
+    -fx-stroke: -wj-primary-color;
+}

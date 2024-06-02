@@ -66,12 +66,10 @@ public class FXUtil {
     public static Rectangle clipRect(Node node, DoubleProperty bindArc) {
         Rectangle rectangle = new Rectangle();
         //rectangle.setSmooth(false);
-        rectangle.widthProperty().bind(Bindings
-                .createObjectBinding((Callable<Number>) () ->
-                        node.getLayoutBounds().getWidth(), node.layoutBoundsProperty()));
-        rectangle.heightProperty().bind(Bindings
-                .createObjectBinding((Callable<Number>) () ->
-                        node.getLayoutBounds().getHeight(), node.layoutBoundsProperty()));
+        rectangle.widthProperty().bind(Bindings.createObjectBinding((Callable<Number>) () ->
+                node.getLayoutBounds().getWidth(), node.layoutBoundsProperty()));
+        rectangle.heightProperty().bind(Bindings.createObjectBinding((Callable<Number>) () ->
+                node.getLayoutBounds().getHeight(), node.layoutBoundsProperty()));
         rectangle.arcWidthProperty().bind(bindArc);
         rectangle.arcHeightProperty().bind(bindArc);
         node.setClip(rectangle);

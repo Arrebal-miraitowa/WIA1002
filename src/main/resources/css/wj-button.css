@@ -41,8 +41,8 @@
 }
 
 /*hover:*/ /*focused:*/
-.wj-but.primary:hover, .wj-but.primary:focused {
-    -fx-background-color: derive(-wj-primary-color, 30%);
+.wj-but.primary:hover {
+    -fx-background-color: derive(-wj-primary-color, 20%);
 }
 
 .wj-but.success:hover, .wj-but.success:focused {

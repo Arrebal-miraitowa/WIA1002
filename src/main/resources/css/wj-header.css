@@ -1,7 +1,16 @@
 .wj-header {
-    -fx-background-color: transparent;
     -fx-padding: 5px 5px;
     -fx-spacing: 5px;
+}
+
+.transparent {
+    -fx-background-color: transparent;
+}
+
+.white {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #CDD0D6 transparent; /* 仅底边描边 */
+    -fx-border-width: 0 0 1 0; /* 仅设置底边的宽度 */
 }
 
 .wj-header > .button-box {

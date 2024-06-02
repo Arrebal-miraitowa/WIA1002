@@ -6,19 +6,25 @@ import java.util.Random;
 import java.util.StringJoiner;
 
 public abstract class User {
-    private final Role ID;
+    private Role ID;
     private String Username;
     private String Email;
     private String Password;
-    private int[] coordinate;
+    private String coordinate;
 
-    public User(Role ID, String username, String email, String password) {
-        Random r = new Random();
-        this.ID = ID;
+    public User() {}
+
+    public User(Role id, String username, String email, String password, String coordinate) {
+        this(id, username, email, password);
+        this.coordinate = coordinate;
+    }
+
+    public User(Role id, String username, String email, String password) {
+        ID = id;
         Username = username;
         Email = email;
         Password = password;
-        coordinate = new int[]{r.nextInt(1001) - 500, r.nextInt(1001) - 500};
+        coordinate = getRandomCoordinate();
     }
 
     public Role getID() {
@@ -33,18 +39,27 @@ public abstract class User {
         return Email;
     }
 
-    public String info() {
-        return String.format("%s %s %d.%d", Username, Email, coordinate[0], coordinate[1]);
+    public String getPassword() {
+        return Password;
     }
 
-    public static ArrayList<String> getArrayList(String s) {
-        return new ArrayList<>(Arrays.asList(s.split(";")));
+    public String getCoordinate() {
+        return coordinate;
+    }
+
+    public ArrayList<String> getInfoList() {
+        return new ArrayList<>(Arrays.asList("Username:| " + Username, "Email:| " + Email, "Location:| " + coordinate));
+    }
+
+    private String getRandomCoordinate() {
+        Random r = new Random();
+        return (r.nextInt(1001) - 500) + ", " + (r.nextInt(1001) - 500);
     }
 
     @Override
     public String toString() {
         StringJoiner sj = new StringJoiner(",");
-        sj.add(ID.name()).add(Username).add(Email).add(Password).add(String.format("%d.%d", coordinate[0], coordinate[1]));
+        sj.add(ID.name()).add(Username).add(Email).add(Password).add(coordinate);
         return sj.toString();
     }
 

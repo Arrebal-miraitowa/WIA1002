@@ -21,7 +21,6 @@ public class WJHeader extends HBox {
 
     private static final String STYLE_SHEET = ResourcesLoader.load("/css/wj-header.css");
     private final ObjectProperty<HeaderStyle> headerStylePro = new SimpleObjectProperty<>(HeaderStyle.ALL);
-    private final SimpleBooleanProperty mode = new SimpleBooleanProperty(false);
 
     private final Label titleLabel = SimpleControl.getLabel("");
     private final StackPane titleBox = new StackPane(titleLabel);
@@ -58,10 +57,6 @@ public class WJHeader extends HBox {
         maximizeBut.getTooltip().setText(text);
     }
 
-    public void setMode(boolean darkMode) {
-        mode.set(darkMode);
-    }
-
     public HeaderStyle getHeaderStyle() {
         return this.headerStylePro.get();
     }
@@ -72,8 +67,8 @@ public class WJHeader extends HBox {
     }
 
     public void doubleClickEvent(BooleanProperty booleanProperty) {
-        if (!headerStylePro.getName().equals(HeaderStyle.ALL.name())) return;
         this.setOnMouseClicked(event -> {
+            if (!headerStylePro.get().equals(HeaderStyle.ALL)) return;
             if (event.getClickCount() == 2) {
                 booleanProperty.set(!booleanProperty.get());
             }
@@ -105,10 +100,18 @@ public class WJHeader extends HBox {
 
     private void headerStyleChange(HeaderStyle headerStyle) {
         switch (headerStyle) {
-            case ICONIFY_CLOSE -> showHideNode(new Node[]{minimizeBut, closeBut}, new Node[]{maximizeBut});
+            case ICONIFY_CLOSE -> {
+                showHideNode(new Node[]{minimizeBut, closeBut}, new Node[]{maximizeBut});
+                getStyleClass().add("transparent");
+                getStyleClass().remove("white");
+            }
             case CLOSE -> showHideNode(new Node[]{closeBut}, new Node[]{minimizeBut, maximizeBut});
             case NONE -> showHideNode(new Node[]{}, new Node[]{this});
-            default -> showHideNode(new Node[]{closeBut, minimizeBut, maximizeBut}, new Node[]{});
+            default -> {
+                showHideNode(new Node[]{closeBut, minimizeBut, maximizeBut}, new Node[]{});
+                getStyleClass().remove("transparent");
+                getStyleClass().add("white");
+            }
         }
     }
 

@@ -1,0 +1,79 @@
+@import "wj-colors.css";
+
+.main {
+    -fx-padding: 5px;
+    -fx-background-color: white;
+}
+
+.main .close {
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.main .close > .ikonli-font-icon {
+    -fx-icon-size: 16px;
+    -fx-icon-color: -wj-text-color;
+}
+
+.main .close:hover > .ikonli-font-icon {
+    -fx-icon-size: 16px;
+    -fx-icon-color: -wj-primary-color;
+}
+
+.request-pane {
+    -fx-alignment: center;
+    -fx-padding: 5;
+    -fx-spacing: 10;
+    -fx-border-color: black;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+}
+
+.name {
+    -fx-font-weight: 500;
+    -fx-font-size: 16px;
+}
+
+.greeting {
+    -fx-font-weight: 400;
+    -fx-font-size: 16px;
+    -fx-fill: #A0AEC0;
+}
+
+.checkmark {
+    -fx-pref-width: 28px;
+    -fx-max-height: 28px;
+    -fx-alignment: center;
+    -fx-border-color: #003906;
+    -fx-border-radius: 100;
+    -fx-border-width: 2;
+    -fx-background-color: #CAFFCF;
+    -fx-background-radius: 100;
+    -fx-cursor: hand;
+}
+
+.checkmark > .ikonli-font-icon {
+    -fx-icon-size: 24px;
+    -fx-icon-color: #003906;
+}
+
+.closeMark {
+    -fx-pref-width: 28px;
+    -fx-max-height: 28px;
+    -fx-alignment: center;
+    -fx-border-color: #390000;
+    -fx-border-radius: 100;
+    -fx-border-width: 2;
+    -fx-background-color: #FFCACA;
+    -fx-background-radius: 100;
+    -fx-cursor: hand;
+}
+
+.closeMark > .ikonli-font-icon {
+    -fx-icon-size: 24px;
+    -fx-icon-color: #390000;
+}

@@ -1,5 +1,6 @@
 package com.weijie.core.common;
 
+import com.weijie.core.service.UserFilterService;
 import com.weijie.ui.controls.WJMessage;
 import com.weijie.ui.enums.WJLevel;
 
@@ -34,7 +35,7 @@ public enum Validation {
         this.position = position;
     }
 
-    public boolean isMatch(String s) {
+    private boolean isMatch(String s) {
         return !s.matches(this.regex);
     }
 
@@ -49,26 +50,27 @@ public enum Validation {
         }
         switch (this) {
             case Username -> {
-                if (Resource.fileSearcher(s, this.position) != null) {
+                if (UserFilterService.isNameExist(s)) {
                     WJMessage.show("This username is already taken", WJLevel.DANGER);
                     return true;
                 }
             }
             case Email -> {
+                boolean isEmailExist = UserFilterService.isEmailExist(s);
                 if (!isSignUp) {
-                    if (Resource.fileSearcher(s, this.position) == null){
+                    if (!isEmailExist) {
                         WJMessage.show("Can't find your email address, please register as a new user", WJLevel.DANGER);
                         return true;
                     }
                 } else {
-                    if (Resource.fileSearcher(s, this.position) != null){
+                    if (isEmailExist) {
                         WJMessage.show("This email address is already registered", WJLevel.DANGER);
                         return true;
                     }
                 }
             }
             case Password -> {
-                if (!isSignUp && Resource.fileSearcher(s, this.position) == null) {
+                if (!isSignUp && !UserFilterService.isPasswordExist(PasswordHashing.get(s))) {
                     WJMessage.show("Wrong password", WJLevel.DANGER);
                     return true;
                 }

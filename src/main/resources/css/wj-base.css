@@ -199,18 +199,19 @@
     /*-fx-block-increment:10000;*/
     -fx-unit-increment: 20;
     -fx-background-color: transparent;
+    /*-fx-background-color: #43bb43;*/
 }
 
 .scroll-bar-style .scroll-bar > .decrement-button,
 .scroll-bar-style .scroll-bar > .increment-button {
-    /*-fx-opacity:0;*/
-    -fx-pref-width: 12px;
-    -fx-pref-height: 12px;
+    -fx-opacity: 0;
+    -fx-padding: 0;
 }
 
 .scroll-bar-style .scroll-bar > .track {
     -fx-background-radius: 0px;
     -fx-background-color: transparent;
+    /*-fx-background-color: #43bb43;*/
 }
 
 .scroll-bar-style .scroll-bar:vertical > .thumb, .scroll-bar-style .scroll-bar:horizontal > .thumb {
@@ -223,12 +224,5 @@
     -fx-pref-height: 8px;
 }
 
-.scroll-bar-style .scroll-bar:horizontal > .thumb {
-    -fx-pref-width: 8px;
-}
-
 .scroll-bar-style .scroll-bar:vertical > .thumb, .scroll-bar-style .scroll-bar:vertical > .track {
-}
-
-.scroll-bar-style .scroll-bar:horizontal > .thumb, .scroll-bar-style .scroll-bar:horizontal > .track {
 }

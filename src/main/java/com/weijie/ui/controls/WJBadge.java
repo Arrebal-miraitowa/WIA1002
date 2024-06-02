@@ -7,11 +7,11 @@ import javafx.scene.control.Label;
 
 public class WJBadge extends Label {
 
-    private static final String STYLE_SHEET = ResourcesLoader.load("/cn/chenfeifx/core/css/cf-badge.css");
+    private static final String STYLE_SHEET = ResourcesLoader.load("/css/wj-badge.css");
     private IntegerProperty valuePro = new SimpleIntegerProperty();
 
     public WJBadge() {
-        getStyleClass().add("cf-badge");
+        getStyleClass().add("wj-badge");
         valuePro.addListener((observable, oldValue, newValue) -> {
             int i = newValue.intValue();
             setManaged(i != -1);

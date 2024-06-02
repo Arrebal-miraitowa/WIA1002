@@ -1,0 +1,68 @@
+.wj-profile {
+    -fx-padding: 15;
+    -fx-border-width: 0;
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+    -fx-background-color: transparent;
+    /*-fx-background-color: #3277bb;*/
+    -fx-background: transparent;
+}
+
+.content {
+    -fx-spacing: 20;
+    -fx-padding: 10;
+    -fx-background-radius: 10;
+    -fx-background-color: #ffffff;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10;
+    -fx-border-color: #CDD0D6;
+}
+
+.title {
+    -fx-text-fill: #000000;
+    -fx-font-family: "Inter";
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+    /*-fx-background-color: #ff7c7c;*/
+}
+
+.field {
+    -fx-fill: #718096;
+    -fx-font-family: "Inter";
+    -fx-font-size: 20px;
+    -fx-font-weight: 400;
+    /*-fx-background-color: #ff7c7c;*/
+}
+
+.value {
+    -fx-fill: #A0AEC0;
+    -fx-font-family: "Inter";
+    -fx-font-size: 20px;
+    -fx-font-weight: 400;
+    /*-fx-background-color: #ff7c7c;*/
+}
+
+.friend-pane {
+    -fx-padding: 5 9;
+    -fx-border-color: #000000;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+}
+
+.friend-pane-text {
+    /*-fx-text-fill: #000000;*/
+    -fx-font-family: "Inter";
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+}
+
+.child-pane {
+    -fx-padding: 5;
+    -fx-border-color: #000000;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+}

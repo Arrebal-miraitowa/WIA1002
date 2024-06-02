@@ -7,6 +7,7 @@ import javafx.animation.*;
 import javafx.beans.value.WritableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -101,6 +102,8 @@ public class AnimationUtils {
         return timeline;
     }
 
+    //*****************************************MyAnimation*****************************************\\
+
     public static SequentialTransition silkyPopupAnimation(WJStage parent, WJLogin example, WJMid wjMid, double insets, Duration time) {
         WJMid signUpMid = example.getSignUpMid();
         signUpMid.toFront();
@@ -109,12 +112,6 @@ public class AnimationUtils {
         double sW = signUpMid.getMaxWidth(), sH = signUpMid.getMaxHeight();
         double pW = parent.getWidth(), pH = parent.getHeight();
         double scaleMaxW = (pW - insets + 15) / sW, scaleMaxH = (pH - insets + 15) / sH;
-        FadeTransition ft1 = new FadeTransition(Duration.millis(600), signUpMid);
-        ft1.setFromValue(0.0);
-        ft1.setToValue(1.0);
-        FadeTransition ft3 = new FadeTransition(time, wjMid);
-        ft3.setFromValue(0);
-        ft3.setToValue(1);
         ScaleTransition st1 = new ScaleTransition(time, signUpMid);
         st1.setToX(scaleMaxW);
         st1.setToY(scaleMaxH);
@@ -135,8 +132,21 @@ public class AnimationUtils {
             example.getSignUpBox().setVisible(false);
             wjMid.setVisible(true);
         });
-        ParallelTransition pt2 = new ParallelTransition(st2, ft3);
+        ParallelTransition pt2 = new ParallelTransition(st2, fade(time, wjMid, false));
         pt2.setOnFinished(e -> example.getChildren().remove(signUpMid));
-        return new SequentialTransition(ft1, pt1, pt2);
+        return new SequentialTransition(fade(Duration.millis(600), signUpMid, false), pt1, pt2);
+    }
+
+    public static FadeTransition fade(Duration time, Node node, boolean toTransparent) {
+        FadeTransition ft = new FadeTransition(time, node);
+        ft.setFromValue(toTransparent ? 1 : 0);
+        ft.setToValue(toTransparent ? 0 : 1);
+        return ft;
+    }
+
+    public static FadeTransition fade(Duration time, Node node, boolean toTransparent, EventHandler<ActionEvent> eventHandler) {
+        FadeTransition ft = fade(time, node, toTransparent);
+        ft.setOnFinished(eventHandler);
+        return ft;
     }
 }

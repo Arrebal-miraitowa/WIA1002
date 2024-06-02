@@ -1,10 +1,11 @@
 package com.weijie.ui.FXTool;
 
 import com.weijie.ui.enums.WJLevel;
-import javafx.beans.property.ReadOnlyDoubleProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.kordamp.ikonli.javafx.FontIcon;
 
@@ -14,10 +15,18 @@ import java.util.stream.IntStream;
 
 public class SimpleControl {
 
-    /********************************* GridPane *********************************/
+    /********************************** Text **********************************/
 
-    public static <T> GridPane getGridPane(List<T> data, ReadOnlyDoubleProperty property, Function<T, ? extends Pane> function) {
-        GridPane gridPane = new GridPane(10, 10);
+    public static Text getText(String s, String style) {
+        Text t = new Text(s);
+        t.getStyleClass().add(style);
+        return t;
+    }
+
+    /******************************** GridPane ********************************/
+
+    public static <T> GridPane getGridPane(double var1, double var2, List<T> data, Function<T, ? extends Pane> function) {
+        GridPane gridPane = new GridPane(var1, var2);
         ColumnConstraints column1 = new ColumnConstraints();
         column1.setPercentWidth(50);
         ColumnConstraints column2 = new ColumnConstraints();
@@ -32,23 +41,36 @@ public class SimpleControl {
             gridPane.getRowConstraints().add(row);
         }
 
-        // 添加 EventBlock 组件
         IntStream.range(0, data.size()).forEach(i -> gridPane.add(function.apply(data.get(i)), i % 2, i / 2));
 
-        gridPane.prefWidthProperty().bind(property);
 //        gridPane.setStyle("-fx-grid-lines-visible: true;");
         return gridPane;
+    }
+
+    public static <T> GridPane getGridPane(List<T> data, Function<T, ? extends Pane> function) {
+        return getGridPane(10, 10, data, function);
+    }
+
+    public static <T> GridPane getGridPane(List<T> data, ObservableValue property, Function<T, ? extends Pane> function) {
+        GridPane g = getGridPane(data, function);
+        g.prefWidthProperty().bind(property);
+//        g.setBackground(new Background(new BackgroundFill(Color.TAN, null, null)));
+        return g;
     }
 
     /********************************* Label *********************************/
 
     public static Label getLabel(String text) {
-        return getLabel(text, LabelEnum.TEXT_DEFAULT);
+        return getLabel(text, LabelEnum.TEXT_DEFAULT, true);
     }
 
     public static Label getLabel(String text, LabelEnum labelEnum) {
+        return getLabel(text, labelEnum, true);
+    }
+
+    public static Label getLabel(String text, LabelEnum labelEnum, boolean isWrapText) {
         Label label = new Label(text);
-        label.setWrapText(true);
+        label.setWrapText(isWrapText);
         setStyleClass(label, getStyleClass(labelEnum.name()));
         return label;
     }

@@ -1,7 +1,5 @@
 .wj-quiz {
-    -fx-padding: 10;
-    -fx-spacing: 15;
-    -fx-alignment: center;
+    -fx-padding: 10 0 0 0;
 }
 
 .navigation-bar {
@@ -10,8 +8,9 @@
     -fx-alignment: center;
     -fx-border-width: 1px;
     -fx-border-radius: 100px;
-    -fx-background-radius: 34px;
     -fx-border-color: rgba(0, 0, 0, 0.2);
+    -fx-background-radius: 34px;
+    -fx-background-color: white;
 }
 
 .tag-button {
@@ -19,6 +18,7 @@
     -fx-padding: 3px 18.5px;
     -fx-alignment: center;
     -fx-background-radius: 100px;
+    -fx-background-color: white;
     -fx-border-width: 2px;
     -fx-border-radius: 100px;
     -fx-border-color: #333;
@@ -34,6 +34,74 @@
     -fx-font-weight: 700;
 }
 
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 15 10 10 10px;
+    -fx-alignment: center;
+    /*-fx-background-color: #ff7c7c;*/
+}
+
+.tag-button-small {
+    -fx-pref-height: 30px;
+    -fx-padding: 0px 16px;
+    -fx-alignment: center;
+    -fx-background-radius: 100px;
+    -fx-border-width: 1px;
+    -fx-border-radius: 100px;
+    -fx-border-color: #000000;
+}
+
+.tag-button-small-label {
+    -fx-text-fill: #000A39;
+    -fx-alignment: center;
+    -fx-font-family: "Nunito";
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+}
+
+.quiz-container {
+    -fx-spacing: 10;
+    -fx-padding: 15px;
+    /*-fx-min-height: 160;*/
+    -fx-background-color: white;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-border-color: rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    -fx-icon-size: 30px;
+    -fx-icon-color: #33C651;
+
+}
+
+.quiz-container:hover {
+    -fx-border-color: #0c8ce9;
+    -fx-cursor: hand;
+}
+
+.title {
+    -fx-text-fill: #1D1D1D;
+    -fx-alignment: center;
+    -fx-font-family: "Nunito";
+    -fx-font-size: 24px;
+    -fx-font-weight: 500;
+    /*-fx-background-color: #ff7c7c;*/
+}
+
+.description {
+    /*-fx-pref-height: 48px;*/
+    -fx-wrap-text: true;
+    -fx-text-fill: #575757;
+    -fx-alignment: center;
+    -fx-font-family: "Nunito";
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+    /*-fx-background-color: #ff7c7c;*/
+}
+
 /*-----------------------------------------------------------------------------*/
 
 .all:hover {
@@ -41,5 +109,37 @@
 }
 
 .all-pressed {
-    -fx-background-color: #021fa7;
+    -fx-background-color: #CAD2FF;
+}
+
+.science {
+    -fx-background-color: #F1FFCA;
+}
+
+.science-pressed {
+    -fx-background-color: #F1FFCA;
+}
+
+.technology {
+    -fx-background-color: #FFE3CA;
+}
+
+.technology-pressed {
+    -fx-background-color: #FFE3CA;
+}
+
+.engineering {
+    -fx-background-color: #CAF9FF;
+}
+
+.engineering-pressed {
+    -fx-background-color: #CAF9FF;
+}
+
+.mathematics {
+    -fx-background-color: #EECAFF;
+}
+
+.mathematics-pressed {
+    -fx-background-color: #EECAFF;
 }

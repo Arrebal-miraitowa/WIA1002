@@ -1,0 +1,26 @@
+Petrosains Science Discovery Centre
+-133.24, -12.33
+
+Tech Dome Penang
+20.87, 9.63
+
+Agro Technology Park in MARDI
+-23.28, 16.55
+
+National Science Centre
+-90.02, 226.48
+
+Marine Aquarium and Museum
+27.51, -136.98
+
+Pusat Sains & Kreativiti Terengganu
+263.99, -57.31
+
+Biomedical Museum
+96.68, 127.54
+
+Telegraph Museum
+7.02, -359.28
+
+Penang Science Cluster
+21.33, -0.59

@@ -1,5 +1,7 @@
 package com.weijie.ui.controls;
 
+import com.weijie.core.entities.User;
+import com.weijie.core.service.UserFilterService;
 import com.weijie.ui.FXTool.FXUtil;
 import com.weijie.ui.FXTool.ResourcesLoader;
 import com.weijie.ui.FXTool.WJBounds;
@@ -16,6 +18,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -32,21 +35,20 @@ public class WJStage extends Stage {
     private WJBounds wjBounds;
 
     private final BorderPane content = new BorderPane(); // 内容区域
-    private final HBox container = new HBox(new StackPane(), content);
+    private HBox container = new HBox(new StackPane(), content);
     private final StackPane backdrop = new StackPane(container); // 背景区域，为了展示阴影效果
     private final StackPane root = new StackPane(backdrop); // 根节点
     private final Scene scene = new Scene(root);
 
     private final WJHeader wjHeader = new WJHeader();
-    private final WJLogin wjLogin = new WJLogin(this);
-//    private final WJSidebar wjSidebar = new WJSidebar(this);
 
     public WJStage() {}
 
     public WJStage(double width, double height) {
-        content.setCenter(wjLogin);
-        this.height = height;
+//        setUserData(new UserFilterService());
+        UserFilterService.refresh();
         this.width = width;
+        this.height = height;
         initialize();
     }
 
@@ -71,22 +73,7 @@ public class WJStage extends Stage {
     }
 
     final public WJStage setHeaderStyle(WJHeader.HeaderStyle headerStyle) {
-        if (WJHeader.HeaderStyle.NONE.equals(headerStyle)) {
-            content.setTop(null);
-        }
         wjHeader.setHeaderStyle(headerStyle);
-        return this;
-    }
-
-    final public WJStage setHeaderColor(Color color) {
-        wjHeader.setBackground(new Background(new BackgroundFill(color, null, null)));
-        return this;
-    }
-
-    final public WJStage setMinSize(double width, double height) {
-        setMinWidth(width);
-        setMinHeight(height);
-        root.setMinSize(width, height);
         return this;
     }
 
@@ -101,23 +88,34 @@ public class WJStage extends Stage {
         return this;
     }
 
-    public void initialization(Object data) {
+    public void toLoginPage() {
+        root.getChildren().clear();
+        close();
+        UserFilterService.writeToFile();
+        new WJStage(800, 500)
+                .setHeaderStyle(WJHeader.HeaderStyle.ICONIFY_CLOSE)
+                .setBackdropImage(ResourcesLoader.loadFxImage("/img/in-the-early-morning-of-forest-wallpaper.jpg"))
+                .show();
+    }
+
+    public void toMainPage(String email) {
         width = 1100;
         height = 650;
         setMinWidth(width);
         setMinHeight(height);
-        setUserData(data);
+        UserFilterService.setUser(email);
         centerOnScreen();
         setHeaderStyle(WJHeader.HeaderStyle.ALL);
-        wjHeader.setMode(true);
-        content.getChildren().remove(wjLogin);
-        container.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+//        content.getChildren().clear();
+        content.setBackground(new Background(new BackgroundFill(Paint.valueOf("#F8F9FA"), null, null)));
+//        container.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         container.getChildren().set(0, new WJSidebar(this));
     }
 
-    public void initialization(Object data, WJMid wjMid) {
-        initialization(data);
+    public void toMainPage(User user, WJMid wjMid) {
         root.getChildren().remove(wjMid);
+        UserFilterService.addUser(user);
+        toMainPage(null);
     }
 
     private void initialize() {
@@ -128,7 +126,7 @@ public class WJStage extends Stage {
         scene.getStylesheets().add(ROOT_STYLE_SHEET);
         setScene(scene);
         root.setBackground(null);
-        container.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255, 1), null, null))); // 窗口默认颜色
+        container.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         HBox.setHgrow(content, Priority.ALWAYS);
         //裁剪为圆角
         FXUtil.clipRect(container, arcPro);
@@ -139,6 +137,7 @@ public class WJStage extends Stage {
         this.root.paddingProperty().bind(insetsPro);
         // header
         content.setTop(wjHeader);
+        content.setCenter(new WJLogin(this));
         wjHeader.bindTitleText(titleProperty());
         headerEvent();
         stageMove();
@@ -180,7 +179,10 @@ public class WJStage extends Stage {
             wjHeader.setMaximizeTooltipText(newValue ? "Reduce" : "Maximize");
         });
         wjHeader.setIconifyMouseClicked(event -> setIconified(true));
-        wjHeader.setCloseMouseClicked(event -> this.close());
+        wjHeader.setCloseMouseClicked(event -> {
+            close();
+            UserFilterService.writeToFile();
+        });
     }
 
     private double xOffset;

@@ -1,6 +1,8 @@
 package com.weijie.ui.controls;
 
 
+import com.weijie.core.entities.Parent;
+import com.weijie.core.entities.Student;
 import com.weijie.ui.FXTool.ResourcesLoader;
 import com.weijie.ui.controls.skins.WJCheckBoxSkin;
 import javafx.scene.control.CheckBox;
@@ -17,6 +19,14 @@ public class WJCheckBox extends CheckBox {
     public WJCheckBox(String text) {
         setText(text);
         initialize();
+    }
+
+    public WJCheckBox(Parent parent, Student student) {
+        this(student.getUsername());
+        setOnAction(event -> {
+            if (isSelected()) parent.getChildren().add(student);
+            else parent.getChildren().remove(student);
+        });
     }
 
     public WJCheckBox(String text, boolean selected) {

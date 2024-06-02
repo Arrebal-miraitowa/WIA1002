@@ -11,13 +11,14 @@ import javafx.scene.control.Skin;
 import javafx.scene.input.MouseEvent;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+//TODO 2024/5/13 21:26: 需要实现定尺寸文本框
 public class WJTextField extends Control {
 
     private static final String STYLE_SHEET = ResourcesLoader.load("/css/wj-text-field.css");
     private static final String STYLE_CLASS = "wj-text-field";
     private static final PseudoClass PSEUDO_CLASS_FOCUSED = PseudoClass.getPseudoClass("focused");// 自定义伪类
     private Type type = Type.TEXT;
-    //
+
     private StringProperty text = new SimpleStringProperty();
     private StringProperty promptText = new SimpleStringProperty();
     private ObjectProperty<Node> prefixIcon = new SimpleObjectProperty<>();
@@ -29,9 +30,14 @@ public class WJTextField extends Control {
         initialize();
     }
 
-    public WJTextField(String text) {
+    public WJTextField(boolean clearable) {
         initialize();
-        this.text.set(text);
+        this.clearable.set(clearable);
+    }
+
+    public WJTextField(String promptText, boolean clearable) {
+        this(clearable);
+        this.promptText.set(promptText);
     }
 
     public WJTextField(Type type) {

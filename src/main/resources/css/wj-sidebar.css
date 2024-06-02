@@ -1,6 +1,6 @@
 .aside {
-    /*-fx-min-width: 220px;
-    -fx-max-width: 220px;*/
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
     -fx-pref-width: 220px;
     -fx-border-width: 0 1px 0 0;
     -fx-border-color: -wj-border-color;
@@ -26,9 +26,6 @@
     -fx-cursor: hand;
 }
 
-/*.nav-item > .icon-label{
-    -fx-alignment: center;
-}*/
 .nav-item > .icon-label > .ikonli-font-icon {
     -fx-icon-size: 20px;
     -fx-icon-color: derive(-wj-text-color, 30%);
@@ -89,6 +86,12 @@
 
 .menu .cell.indexed-cell.list-cell:selected .icon-label > .ikonli-font-icon {
     -fx-icon-color: -wj-primary-color;
+}
+
+.logout {
+    -fx-border-radius: 3px;
+    -fx-border-width: 2px;
+    -fx-border-color: -wj-danger-color;
 }
 
 /* 用户信息 */
