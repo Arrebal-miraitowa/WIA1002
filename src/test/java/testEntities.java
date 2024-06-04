@@ -68,9 +68,9 @@ public class testEntities {
         students.add(s1);
         students.add(s2);
 
-        Parent p1 = new Parent("Parent1", "mwiy@gmail.com", "Anxious0", students, booking);
-        Teacher t1 = new Teacher("Teacher1", "vqer@gmail.com", "Anxious0");
-        Teacher t2 = new Teacher("Teacher2", "iytu@gmail.com", "Anxious0");
+        Parent p1 = new Parent("Parent1", "mwiy@gmail.com", PasswordHashing.get("Anxious0"), students, booking);
+        Teacher t1 = new Teacher("Teacher1", "vqer@gmail.com", PasswordHashing.get("Anxious0"));
+        Teacher t2 = new Teacher("Teacher2", "iytu@gmail.com", PasswordHashing.get("Anxious0"));
 
         /*
         * Test 1
@@ -92,27 +92,27 @@ public class testEntities {
 //        System.out.println(KryoSerializer.getUserList().stream().filter(u -> u.getID() == User.Role.TEACHER).toList());
 
         ArrayList<Event> events = new ArrayList<>();
-//        events.add(new Event(
-//                "Spring Blossom Festival", "Join us for a celebration of spring's arrival with live music, food stalls featuring seasonal delicacies, and a showcase of local artisans. Don't miss the stunning cherry blossom display!", "City Park",
-//                "03/02/2022", "10:00 AM - 6:00 PM"));
-//        events.add(new Event(
-//                "Sustainable Living Workshop", "Learn practical tips for sustainable living at this interactive workshop. From reducing waste to energy conservation, discover ways to make a positive impact on the environment.", "Green Living Center",
-//                "03/02/2022", "10:00 AM - 12:00 PM"));
-//        events.add(new Event(
-//                "Cultural Food Festival", "Experience a culinary journey around the world! Sample diverse cuisines from different cultures, accompanied by live music and cultural performances.", "City Plaza",
-//                "03/02/2022", "5:00 PM - 9:00 PM"));
-//        events.add(new Event(
-//                "Fitness Bootcamp Challenge", "Get ready to sweat in this high-intensity fitness challenge! Join us for a full-body workout led by expert trainers, suitable for all fitness levels.", "Central Park",
-//                "03/02/2022", "7:00 AM - 9:00 AM"));
-//        events.add(new Event(
-//                "Artisan Craft Fair", "Explore handmade treasures at our artisan craft fair. Browse unique artworks, jewelry, pottery, and more created by local artisans. Support small businesses and find one-of-a-kind gifts.", "Community Center Courtyard",
-//                "03/02/2022", "11:00 AM to 4:00 PM"));
-//        events.add(new Event(
-//                "Tech Talk Series: AI in Healthcare", "Delve into the role of artificial intelligence in revolutionizing healthcare. Experts will discuss AI applications in diagnostics, patient care, and medical research, followed by a Q&A session.", "Innovation Hub Auditorium",
-//                "03/02/2022", "2:00 PM to 4:00 PM"));
-//        events.add(new Event(
-//                "Charity Gala Dinner", "Support a worthy cause while indulging in an elegant evening of fine dining and entertainment. Proceeds from this gala dinner will benefit local charities dedicated to community welfare.", "Grand Ballroom, Riverside Hotel",
-//                "04/02/2022", "6:30 PM to 11:00 PM"));
+        events.add(new Event(
+                "Spring Blossom Festival", "Join us for a celebration of spring's arrival with live music, food stalls featuring seasonal delicacies, and a showcase of local artisans. Don't miss the stunning cherry blossom display!", "City Park",
+                "03/02/2022", "10:00 AM - 6:00 PM"));
+        events.add(new Event(
+                "Sustainable Living Workshop", "Learn practical tips for sustainable living at this interactive workshop. From reducing waste to energy conservation, discover ways to make a positive impact on the environment.", "Green Living Center",
+                "03/02/2022", "10:00 AM - 12:00 PM"));
+        events.add(new Event(
+                "Cultural Food Festival", "Experience a culinary journey around the world! Sample diverse cuisines from different cultures, accompanied by live music and cultural performances.", "City Plaza",
+                "03/02/2022", "5:00 PM - 9:00 PM"));
+        events.add(new Event(
+                "Fitness Bootcamp Challenge", "Get ready to sweat in this high-intensity fitness challenge! Join us for a full-body workout led by expert trainers, suitable for all fitness levels.", "Central Park",
+                "03/02/2022", "7:00 AM - 9:00 AM"));
+        events.add(new Event(
+                "Artisan Craft Fair", "Explore handmade treasures at our artisan craft fair. Browse unique artworks, jewelry, pottery, and more created by local artisans. Support small businesses and find one-of-a-kind gifts.", "Community Center Courtyard",
+                "03/02/2022", "11:00 AM to 4:00 PM"));
+        events.add(new Event(
+                "Tech Talk Series: AI in Healthcare", "Delve into the role of artificial intelligence in revolutionizing healthcare. Experts will discuss AI applications in diagnostics, patient care, and medical research, followed by a Q&A session.", "Innovation Hub Auditorium",
+                "03/02/2022", "2:00 PM to 4:00 PM"));
+        events.add(new Event(
+                "Charity Gala Dinner", "Support a worthy cause while indulging in an elegant evening of fine dining and entertainment. Proceeds from this gala dinner will benefit local charities dedicated to community welfare.", "Grand Ballroom, Riverside Hotel",
+                "04/02/2022", "6:30 PM to 11:00 PM"));
 
         KryoSerializer.serialize(KryoSerializer.EVENT_PATH, events);
 
@@ -134,14 +134,14 @@ public class testEntities {
 //        System.out.println(Resource.fileReader(User.Role.STUDENT));
 
         List<Quiz> quizzes = new ArrayList<>();
-//        quizzes.add(new Quiz(Quiz.Theme.SCIENCE, "The Periodic Table Challenge", "Test your knowledge of the periodic table of elements.", "null"));
-//        quizzes.add(new Quiz(Quiz.Theme.SCIENCE, "Renewable Energy Sources", "Assess your understanding of different renewable energy technologies.", "null"));
-//        quizzes.add(new Quiz(Quiz.Theme.ENGINEERING, "Engineering Design Process", "Explore the steps involved in the engineering design process.", "null"));
-//        quizzes.add(new Quiz(Quiz.Theme.ENGINEERING, "Structural Engineering Principles", "Explore the fundamental concepts in structural engineering.", "null"));
-//        quizzes.add(new Quiz(Quiz.Theme.MATHEMATICS, "Geometry Essentials", "Test your knowledge of basic geometric concepts.", "null"));
-//        quizzes.add(new Quiz(Quiz.Theme.MATHEMATICS, "Probability and Statistics", "Test your understanding of basic probability and statistical concepts.", "null"));
-//        quizzes.add(new Quiz(Quiz.Theme.TECHNOLOGY, "Coding Fundamentals", "Assess your understanding of basic programming concepts.", "null"));
-//        quizzes.add(new Quiz(Quiz.Theme.TECHNOLOGY, "Computer Hardware Components", "Test your knowledge of the key components in a computer system.", "null"));
+        quizzes.add(new Quiz(Quiz.Theme.SCIENCE, "The Periodic Table Challenge", "Test your knowledge of the periodic table of elements.", "null"));
+        quizzes.add(new Quiz(Quiz.Theme.SCIENCE, "Renewable Energy Sources", "Assess your understanding of different renewable energy technologies.", "null"));
+        quizzes.add(new Quiz(Quiz.Theme.ENGINEERING, "Engineering Design Process", "Explore the steps involved in the engineering design process.", "null"));
+        quizzes.add(new Quiz(Quiz.Theme.ENGINEERING, "Structural Engineering Principles", "Explore the fundamental concepts in structural engineering.", "null"));
+        quizzes.add(new Quiz(Quiz.Theme.MATHEMATICS, "Geometry Essentials", "Test your knowledge of basic geometric concepts.", "null"));
+        quizzes.add(new Quiz(Quiz.Theme.MATHEMATICS, "Probability and Statistics", "Test your understanding of basic probability and statistical concepts.", "null"));
+        quizzes.add(new Quiz(Quiz.Theme.TECHNOLOGY, "Coding Fundamentals", "Assess your understanding of basic programming concepts.", "null"));
+        quizzes.add(new Quiz(Quiz.Theme.TECHNOLOGY, "Computer Hardware Components", "Test your knowledge of the key components in a computer system.", "null"));
 
         KryoSerializer.serialize(KryoSerializer.QUIZ_PATH, quizzes);
 

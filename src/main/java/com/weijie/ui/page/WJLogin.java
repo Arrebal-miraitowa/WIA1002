@@ -1,6 +1,7 @@
 package com.weijie.ui.page;
 
 import com.weijie.core.common.Validation;
+import com.weijie.core.service.UserFilterService;
 import com.weijie.ui.FXTool.AnimationUtils;
 import com.weijie.ui.FXTool.ResourcesLoader;
 import com.weijie.ui.FXTool.SimpleButton;
@@ -161,8 +162,8 @@ public class WJLogin extends StackPane {
             vBox.getStyleClass().add("v-box-in");
             checkPane.getStyleClass().add("check-pane");
 
-            email.setText("sdfh@gmail.com");
-            password.setText("Anxious0");
+            email.setText("12345@gmail.com");
+            password.setText("Anxious123");
         }
 
         private void setSignInClick() {
@@ -171,10 +172,11 @@ public class WJLogin extends StackPane {
                 String emailText = email.getText();
                 String passwordText = password.getText();
                 if (Validation.Email.check(emailText)) return;
+                UserFilterService.setUser(emailText);
                 if (Validation.Password.check(passwordText)) return;
                 WJMessage.show("SignIn successfully", WJLevel.SUCCESS);
                 PauseTransition pause = new PauseTransition(Duration.millis(600));
-                pause.setOnFinished(e -> wjStage.toMainPage(emailText));
+                pause.setOnFinished(e -> wjStage.toMainPage());
                 pause.play();
             });
         }
@@ -211,7 +213,7 @@ public class WJLogin extends StackPane {
 
             user.setText("Bob");
             email.setText("12345@gmail.com");
-            password.setText("Anxious0");
+            password.setText("Anxious123");
         }
 
         private void setSignUpClick() {
@@ -222,6 +224,7 @@ public class WJLogin extends StackPane {
                 if (Validation.Username.check(userText)) return;
                 if (Validation.Email.check(emailText, true)) return;
                 if (Validation.Password.check(passwordText, true)) return;
+                System.out.println(passwordText);
                 WJMessage.show("Registration successfully", WJLevel.SUCCESS);
                 WJMid wjMid = new WJMid(wjStage, userText, emailText, passwordText);
                 AnimationUtils.silkyPopupAnimation(wjStage, WJLogin.this, wjMid, 90, Duration.seconds(0.3)).play();

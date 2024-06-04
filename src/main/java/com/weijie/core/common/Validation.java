@@ -70,7 +70,7 @@ public enum Validation {
                 }
             }
             case Password -> {
-                if (!isSignUp && !UserFilterService.isPasswordExist(PasswordHashing.get(s))) {
+                if (!isSignUp && !UserFilterService.isPasswordCorrect(PasswordHashing.get(s))) {
                     WJMessage.show("Wrong password", WJLevel.DANGER);
                     return true;
                 }

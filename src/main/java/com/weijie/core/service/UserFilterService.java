@@ -76,7 +76,7 @@ public class UserFilterService {
         return rawList.stream().anyMatch(l -> l.getUsername().equals(name));
     }
 
-    public static boolean isPasswordExist(String password) {
-        return rawList.stream().anyMatch(l -> l.getPassword().equals(password));
+    public static boolean isPasswordCorrect(String password) {
+        return currentUser.getPassword().equals(password);
     }
 }

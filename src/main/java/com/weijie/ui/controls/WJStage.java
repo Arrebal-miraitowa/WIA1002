@@ -98,12 +98,11 @@ public class WJStage extends Stage {
                 .show();
     }
 
-    public void toMainPage(String email) {
+    public void toMainPage() {
         width = 1100;
         height = 650;
         setMinWidth(width);
         setMinHeight(height);
-        UserFilterService.setUser(email);
         centerOnScreen();
         setHeaderStyle(WJHeader.HeaderStyle.ALL);
 //        content.getChildren().clear();
@@ -115,7 +114,7 @@ public class WJStage extends Stage {
     public void toMainPage(User user, WJMid wjMid) {
         root.getChildren().remove(wjMid);
         UserFilterService.addUser(user);
-        toMainPage(null);
+        toMainPage();
     }
 
     private void initialize() {

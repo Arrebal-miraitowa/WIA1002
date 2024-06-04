@@ -1,5 +1,6 @@
 package com.weijie.ui.page;
 
+import com.weijie.core.common.PasswordHashing;
 import com.weijie.core.entities.Parent;
 import com.weijie.core.entities.Student;
 import com.weijie.core.entities.Teacher;
@@ -38,7 +39,7 @@ public class WJMid extends StackPane {
     }
 
     public WJMid(WJStage wjStage, String name, String email, String password) {
-        setEvent(wjStage, name, email, password);
+        setEvent(wjStage, name, email, PasswordHashing.get(password));
         wjStage.getRoot().getChildren().add(this);
         setMaxSize(730, 422);
         getChildren().add(titleBox);
